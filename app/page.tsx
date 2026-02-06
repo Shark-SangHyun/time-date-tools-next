@@ -1,66 +1,28 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Link from "next/link";
+import { t } from "@/content";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <section className="stack">
+      <h1>{t.home.title}</h1>
+      <p className="muted">{t.home.desc}</p>
+
+      <div className="grid">
+        <Link className="card" href="/tools/time-zone">
+          <h2>{t.nav.timeZone}</h2>
+          <p className="muted">Seoul ↔ New York, DST 자동 반영</p>
+        </Link>
+
+        <Link className="card" href="/tools/date-diff">
+          <h2>{t.nav.dateDiff}</h2>
+          <p className="muted">두 날짜/시간 차이 계산</p>
+        </Link>
+
+        <Link className="card" href="/tools/d-day">
+          <h2>{t.nav.dday}</h2>
+          <p className="muted">앞으로/지난 날짜 카운트</p>
+        </Link>
+      </div>
+    </section>
   );
 }
